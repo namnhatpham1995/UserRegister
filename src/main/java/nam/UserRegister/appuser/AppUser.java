@@ -20,7 +20,7 @@ import java.util.Collections;
 public class AppUser implements UserDetails {
 
     @Id
-    @SequenceGenerator(name = "name_sequence", sequenceName = "sequence_name", allocationSize = 1)
+    @SequenceGenerator(name = "name_sequence", sequenceName = "name_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "name_sequence")
     private Long id;
     private String firstName;
@@ -29,8 +29,8 @@ public class AppUser implements UserDetails {
     private String password;
     @Enumerated(EnumType.STRING)
     private AppUserRole appUserRole;
-    private Boolean locked;
-    private Boolean enabled;
+    private Boolean locked = false;
+    private Boolean enabled = false;
 
     public AppUser(String firstName, String lastName, String email, String password, AppUserRole appUserRole) {
         this.firstName = firstName;
