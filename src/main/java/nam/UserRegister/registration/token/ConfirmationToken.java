@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
+@Entity
 public class ConfirmationToken {
 
     @Id
@@ -33,11 +34,10 @@ public class ConfirmationToken {
     @JoinColumn(nullable = false, name = "app_user_id")
     private AppUser appUser;
 
-    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiredAt, LocalDateTime confirmedAt, AppUser appUser) {
+    public ConfirmationToken(String token, LocalDateTime createdAt, LocalDateTime expiredAt, AppUser appUser) {
         this.token = token;
         this.createdAt = createdAt;
         this.expiredAt = expiredAt;
-        this.confirmedAt = confirmedAt;
         this.appUser = appUser;
     }
 }
